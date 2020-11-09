@@ -76,8 +76,6 @@
      ((image :data) (+ (* index 4) 2))
      ((image :data) (+ (* index 4) 3))]))
 
-
-
 (defn set-pixel
   "Sets a pixel to a value and does nothing if out of bounds"
   [image x y colour]
