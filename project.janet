@@ -1,6 +1,6 @@
 (declare-project
   :name "pingo"
-  :author "Daly Barron"
+  :author "Daly G Barron"
   :license "zlib"
   :url "https://github.com/dalygbarron/pingo"
   :repo "git+https://github.com/dalygbarron/pingo.git")

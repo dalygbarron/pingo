@@ -38,11 +38,11 @@ Janet readBytes(int32_t argc, Janet *argv) {
         janet_panicf("png error %x: %s\n", error, lodepng_error_text(error));
     }
     janet_buffer_setcount(outBuffer, 0);
-    janet_buffer_push_bytes(outBuffer, data, buffer->count);
+    janet_buffer_push_bytes(outBuffer, data, width * height * 4);
     Janet items[2];
     items[0] = janet_wrap_number(width);
     items[1] = janet_wrap_number(height);
-    return janet_wrap_tuple(janet_tuple_n(items, 3));
+    return janet_wrap_tuple(janet_tuple_n(items, 2));
 }
 
 Janet writeFile(int32_t argc, Janet *argv) {
@@ -72,9 +72,9 @@ Janet writeFile(int32_t argc, Janet *argv) {
 
 Janet writeBytes(int32_t argc, Janet *argv) {
     janet_fixarity(argc, 3);
-    JanetBuffer *image = janet_getbuffer(argv, 1);
-    int32_t width = janet_getinteger(argv, 2);
-    int32_t height = janet_getinteger(argv, 3);
+    JanetBuffer *image = janet_getbuffer(argv, 0);
+    int32_t width = janet_getinteger(argv, 1);
+    int32_t height = janet_getinteger(argv, 2);
     if (image->count != width * height * 4) {
         janet_panicf(
             "pingo error: width*height*4 is %d, but %d bytes",

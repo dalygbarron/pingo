@@ -52,6 +52,14 @@
   (assert (deep= (pingo/get-pixel loaded-flag 256 128)
                  (pingo/rgb 255 0 0))))
 
+(defn test-superimpose
+  "Draws a picture on another picture then checks on it a bit"
+  []
+  (def japanese-flag (pingo/read-file "test/japaneseFlag.png"))
+  (def test-pic (pingo/read-file "test/testPicture.png"))
+  (pingo/superimpose japanese-flag test-pic 100 100)
+  (pingo/write-file japanese-flag "test/idiot.png"))
+
 (defn nice-drawing
   "Just makes a nice picture with random circles of random colour"
   []
@@ -70,5 +78,7 @@
   (pingo/write-file pic "test/nice-drawing.png"))
 
 (save-and-load)
+(save-and-load-bytes)
 (test-circle)
+(test-superimpose)
 (nice-drawing)

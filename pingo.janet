@@ -74,6 +74,8 @@
      ((image :data) (+ (* index 4) 2))
      ((image :data) (+ (* index 4) 3))]))
 
+
+
 (defn set-pixel
   "Sets a pixel to a value and does nothing if out of bounds"
   [image x y colour]
@@ -87,7 +89,7 @@
       (set ((image :data) (+ (* index 4) 3)) (colour 3)))))
 
 (defn draw-circle
-  "Draws a circle on a given image ignoring out of bounds"
+  "Draws a circle on a given image destructively ignoring out of bounds"
   [image x y radius colour]
   (def sqr-radius (* radius radius))
   (for ix (max (- x radius) 0) (min (+ x radius) (- (image :width) 1))
@@ -97,3 +99,11 @@
         (def dy (- y iy))
         (def sqr-dn (+ (* dx dx) (* dy dy)))
         (if (<= sqr-dn sqr-radius) (set-pixel image ix iy colour))))))
+
+(defn superimpose
+  "Draws one picture onto another positioned by it's top left hand corner and
+  ignoring out of bounds. This is a destructive operation for back"
+  [back front x y]
+  (for ix x (+ x (front :width))
+    (for iy y (+ y (front :height))
+      (set-pixel back ix iy (get-pixel front (- ix x) (- iy y))))))
