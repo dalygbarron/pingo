@@ -1,10 +1,10 @@
 (declare-project
-  :name "lodepng"
+  :name "pingo"
   :author "Daly Barron"
   :license "zlib"
-  :url "dunno yet"
-  :repo "dunno yet")
+  :url "https://github.com/dalygbarron/pingo"
+  :repo "git+https://github.com/dalygbarron/pingo.git")
 
 (declare-native
-  :name "lodepng"
+  :name "_pingo"
   :source ["main.c" "lodepng.c"])
