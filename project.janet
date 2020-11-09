@@ -8,3 +8,6 @@
 (declare-native
   :name "_pingo"
   :source ["main.c" "lodepng.c"])
+
+(declare-source
+  :source ["pingo.janet"])

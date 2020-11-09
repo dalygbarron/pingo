@@ -1,0 +1,6 @@
+test/japaneseFlag.png
+test/nice-drawing.png
+test/output.png
+*.swp
+.DS_Store
+build/
