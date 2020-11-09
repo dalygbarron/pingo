@@ -11,6 +11,11 @@ work is actually happening. I was going to call this a lodepng wrapper but then
 I realised it had a bunch of functionality to do with the internals of the png
 format blah blah blah so I changed my mind.
 
+You can build, test, and run with jpm, but you need to do `sudo jpm install`
+before the tests will pass because it has to install the native part of the
+module first. The tests draw some nice pictures into your test folder so
+I highly recommend running them for your personal enjoyment.
+
 ## Image Struct
 The library creates and works with structs of the following form:
 ```
