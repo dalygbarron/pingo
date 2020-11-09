@@ -71,10 +71,11 @@ Janet writeFile(int32_t argc, Janet *argv) {
 }
 
 Janet writeBytes(int32_t argc, Janet *argv) {
-    janet_fixarity(argc, 3);
+    janet_fixarity(argc, 4);
     JanetBuffer *image = janet_getbuffer(argv, 0);
     int32_t width = janet_getinteger(argv, 1);
     int32_t height = janet_getinteger(argv, 2);
+    JanetBuffer *outBuffer = janet_getbuffer(argv, 3);
     if (image->count != width * height * 4) {
         janet_panicf(
             "pingo error: width*height*4 is %d, but %d bytes",
@@ -94,9 +95,8 @@ Janet writeBytes(int32_t argc, Janet *argv) {
     if (error) {
         janet_panicf("png error %x: %s\n", error, lodepng_error_text(error));
     }
-    JanetBuffer buffer;
-    janet_buffer_push_bytes(&buffer, data, dataSize);
-    return janet_wrap_buffer(&buffer);
+    janet_buffer_push_bytes(outBuffer, data, dataSize);
+    return janet_wrap_buffer(outBuffer);
 }
 
 static const JanetReg cfuns[] = {

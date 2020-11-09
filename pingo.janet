@@ -55,7 +55,9 @@
 (defn write-bytes
   "Writes an image struct to the bytes of a png file"
   [image]
-  (_pingo/write-bytes (image :data) (image :width) (image :height)))
+  (def buff @"")
+  (_pingo/write-bytes (image :data) (image :width) (image :height) buff)
+  buff)
 
 (defn flat
   "Takes a 2d pixel coordinate and makes it 1d"

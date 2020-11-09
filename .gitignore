@@ -1,6 +1,7 @@
 test/japaneseFlag.png
 test/nice-drawing.png
 test/output.png
+test/idiot.png
 *.swp
 .DS_Store
 build/
