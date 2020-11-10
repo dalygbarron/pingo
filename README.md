@@ -41,7 +41,7 @@ There are also two functions for writing png files.
 (write-bytes image)
 (write-file path image)
 ```
-Write evaluates to a buffer containing the bytes of a png file representing the
+write-bytes evaluates to a buffer containing the bytes of a png file representing the
 raw pixel data in image, whereas write-file actually writes it to the file.
 image in this case is one of the image structs I mentioned above which is
 important because it stores the width and height which is needed.
@@ -50,4 +50,4 @@ important because it stores the width and height which is needed.
 There are some extra functions defined in pingo.janet which do things like
 creating empty images, basic drawing and blitting, and destroying western
 civilisation. They're not exactly comprehensive but they aren't really meant to
-be so whatever. They are documented in the code so read it.
+be so whatever. They are documented in the code so have a look.
