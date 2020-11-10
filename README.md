@@ -33,7 +33,7 @@ There are two functions for reading png files into janet.
 (read-file path)
 ```
 Both of these create an image struct, but read-file creates one by loading an
-image file, and read works on the bytes of an already read file.
+image file, and read-bytes works on the bytes of an already read file.
 
 ## Output
 There are also two functions for writing png files.
